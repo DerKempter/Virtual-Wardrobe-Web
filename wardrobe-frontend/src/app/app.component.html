@@ -1,14 +1,17 @@
-<mat-drawer-container class="example-container" autosize>
-  <mat-drawer #drawer class="example-sidenav" mode="side">
-    <div (click)="goToTarget('clothes')">Clothes</div>
-    <div (click)="goToTarget('outfits')">Outfits</div>
-    <div (click)="goToTarget('settings')">Settings</div>
+<app-header [navbar]="drawer"></app-header>
+<mat-drawer-container class="main-content">
+  <mat-drawer #drawer class="main-sidenav" mode="side">
+    <div class="button-container">
+      <div class="navbar-buttons navbar-buttons-main">
+        <button mat-button (click)="goToTarget('')">Home</button>
+        <button mat-button (click)="goToTarget('clothes')">Clothes</button>
+        <button mat-button (click)="goToTarget('outfits')">Outfits</button>
+      </div>
+      <div class="navbar-buttons navbar-buttons-other">
+        <button mat-button (click)="goToTarget('settings')">Settings</button>
+      </div>
+    </div>
   </mat-drawer>
 
-  <div class="example-sidenav-content">
-    <button type="button" mat-button (click)="drawer.toggle()">
-      Toggle sidenav
-    </button>
-  </div>
-
+  <router-outlet></router-outlet>
 </mat-drawer-container>
